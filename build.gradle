@@ -1,8 +1,8 @@
 
 
 plugins {
-    id("java")
-    id("jacoco")
+    id "java"
+    id "jacoco"
 }
 
 group = "org.example"
@@ -21,9 +21,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
-tasks.test {
+test {
     useJUnitPlatform()
     jacoco {
         enabled = true
     }
+}
+jacocoTestReport{
+    dependsOn test
 }
